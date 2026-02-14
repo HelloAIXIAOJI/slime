@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "slime",
+  "version": "${version}",
+  "name": "slime",
+  "description": "Are you human?",
+  "authors": [
+    "aixiaoji"
+  ],
+  "contact": {
+    "homepage": "aixiaoji.nb6.ltd"
+  },
+  "license": "MIT",
+  "icon": "assets/slime/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "ltd.nb6.slime.fabric.SlimeFabric"
+    ],
+    "client": [
+      "ltd.nb6.slime.fabric.client.SlimeFabricClient"
+    ]
+  },
+  "mixins": [
+    "slime.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.18.4",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "architectury": ">=19.0.1",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
