@@ -27,14 +27,14 @@ public abstract class BlockMixin {
     }
 
     @Inject(method = "fallOn", at = @At("HEAD"), cancellable = true)
-    private void slime$fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float fallDistance, CallbackInfo ci) {
+    private void slime$fallOn(Level level, BlockState state, BlockPos pos, Entity entity, double fallDistance, CallbackInfo ci) {
         if (!entity.isSuppressingBounce()) {
-            entity.causeFallDamage(fallDistance, 0.0F, level.damageSources().fall());
+            entity.causeFallDamage((float) fallDistance, 0.0F, level.damageSources().fall());
             ci.cancel();
         }
     }
 
-    @Inject(method = "updateEntityAfterFallOn", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "updateEntityMovementAfterFallOn", at = @At("HEAD"), cancellable = true)
     private void slime$updateEntityAfterFallOn(net.minecraft.world.level.BlockGetter level, Entity entity, CallbackInfo ci) {
         if (!entity.isSuppressingBounce()) {
             this.slime$bounce(entity);
